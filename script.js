@@ -5,12 +5,13 @@ var modal=(function(){
                         {{{content}}}
                     </div>
                     <div class"modal-buttons">
+                     <button class="btn btn-primary" data-modal-accept>
+                        {{{acceptButton}}}
+                        </button>
                         <button class="btn" data-modal-close>
                         {{{closeButton}}}
                         </button>
-                        <button class="btn btn-primary" data-modal-accept>
-                        {{{acceptButton}}}
-                        </button>
+                       
                     </div>
                 </div>`;
 
@@ -54,11 +55,11 @@ var modal=(function(){
             const targetData=ev.target.dataset;
             
             ev.preventDefault();
-            if(targetData===undefined)
+            if(targetData!==undefined)
             {
                 
-            }
-            else if(targetData.modalContainer!==undefined){
+           
+            if(targetData.modalContainer!==undefined){
                 hide();
             }
             else if(targetData.modalClose!==undefined){
@@ -69,6 +70,7 @@ var modal=(function(){
                 if(config.onAccept())
                 hide()
             }
+             }
         }
     }
 })()
